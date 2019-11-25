@@ -24,7 +24,7 @@ var names = [
 var leftProduct;
 var rightProduct;
 var centerProduct;
-var rounds = 25;
+var rounds = 0;
 var leftImage = document.querySelector("#leftImage");
 var centerImage = document.querySelector("#centerImage");
 var rightImage = document.querySelector("#rightImage");
@@ -96,16 +96,78 @@ function handleClick(e) {
     for (let i = 0; i < Product.all.length; i++) {
       if (e.target.title === Product.all[i].name) {
         Product.all[i].votes++;
-      }
+        rounds=rounds+1;
+        console.table(Product.all);
+      
+        
+      console.log(rounds);
+    }else if (rounds==25) {
+      imagesSection.removeEventListener("click", handleClick);
+      
+      alert("it's just 25 click");
+      list();
     }
-    console.table(Product.all);
-    render();
+    
   }
+  render(); 
+}
 }
 imagesSection.addEventListener("click", handleClick);
+////////////////////List////////////////////////////////////////////////
+function list() {
+  var sectionEl=document.createElement("section");
+  imagesSection.appendChild(sectionEl);
+  var ulEl=document.createElement("ul");
+  for (let i = 0; i< Product.all.length; i++) {
+   
+    var liEl=document.createElement('li');
+    sectionEl.appendChild(ulEl);
+    ulEl.appendChild(liEl);
+    liEl.textContent= `${names[i]} has ${Product.all[i].votes} votes and was shown ${Product.all[i].views} time` ;
+  }
+  
+}
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+//////////////////Chart//////////////////////////////////////////////////
+// var ctx = document.getElementById('myChart').getContext('2d');
+// var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//         datasets: [{
+//             label: '# of Votes',
+//             data: [12, 19, 3, 5, 2, 3],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }]
+//         }
+//     }
+// });
 
 
  

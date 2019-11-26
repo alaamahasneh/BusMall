@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Patrick+Hand|Yellowtail&display=swap');
-html{
-    background-image: url(https://pngimage.net/wp-content/uploads/2018/06/header-png-image-8.png);
-    position: fixed;
-    background-repeat: no-repeat;
-}
-h1{
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+ html{
+     background-color: rgb(246, 248, 245);
+     
+}  
+ h1{
     text-align: center;
     font-family: 'Pacifico', cursive;
 font-size: 60px;
+background-image: url(https://img.freepik.com/free-vector/background-watercolor-texture_122380-11.jpg?size=626&ext=jpg);
+
 }
 img {
     width: 300px;
     height: 300px;
-    border: 10px dashed rgb(187, 54, 136);
+    border: 10px dashed #F888FA;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
+  }
+  ul{
+    font-family: 'Indie Flower', cursive;
+
+    font-size: 30px;
   }

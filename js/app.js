@@ -101,6 +101,7 @@ function handleClick(e) {
     imagesSection.removeEventListener("click", handleClick);
     alert('Its Just 25 Click');
     renderChartAndList();
+    
   }
 }
 
@@ -166,3 +167,11 @@ function renderChartAndList() {
     options: chartOptions
   });
 }
+function refreshList() {
+  var listString = JSON.stringify(Product.all);
+  localStorage.setItem("refresh", listString);
+
+    // render();
+}
+
+

@@ -29,7 +29,7 @@ var leftImage = document.querySelector("#leftImage");
 var centerImage = document.querySelector("#centerImage");
 var rightImage = document.querySelector("#rightImage");
 var imagesSection = document.querySelector("#imagesSection");
-
+///////////////////Constructor Function////////////
 function Product(path) {
   var pathArr = path.split(".");
   this.name = pathArr[0];
@@ -101,13 +101,15 @@ function handleClick(e) {
     imagesSection.removeEventListener("click", handleClick);
     alert('Its Just 25 Click');
     renderChartAndList();
-    
+    updateList();
   }
 }
 
 imagesSection.addEventListener("click", handleClick);
+getList();
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+
 }
 ////////////////////List amd Chart " This is code from Demo"////////////////////////////////////////////////
 
@@ -135,6 +137,7 @@ function renderChartAndList() {
     label: "# of Votes",
     data: votes,
     backgroundColor: "#F888FA"
+    // hoverBackgroundColor: "blue"
   
   };
 
@@ -167,11 +170,18 @@ function renderChartAndList() {
     options: chartOptions
   });
 }
-function refreshList() {
+function updateList() {
   var listString = JSON.stringify(Product.all);
-  localStorage.setItem("refresh", listString);
-
-    // render();
+  localStorage.setItem("update", listString);
 }
+function getList() {
+  var listString =localStorage.getItem("update");
+  if (listString) {
+  // console.log(JSON.parse(listString));
+     Product.all = JSON.parse(listString);
+    
+     render();
+  }
 
+}
 

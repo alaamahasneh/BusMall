@@ -58,6 +58,7 @@ function getUniqueIndex() {
   }
   return index;
 }
+
 //////////////////////////////Render Function//////////////////////////////////////////////////////
 
 function render() {
@@ -137,21 +138,21 @@ function renderChartAndList() {
     label: "# of Votes",
     data: votes,
     backgroundColor: "#F888FA"
-    // hoverBackgroundColor: "blue"
-  
+    // hoverBackgroundColor: "black"
+    
   };
-
+  
   var viewsData = {
     label: "# of Views",
     data: views,
     backgroundColor: "#34A012"
   };
-
+  
   var labelsInfo = {
     labels: labels,
     datasets: [voteData, viewsData]
   };
-
+  
   var chartOptions = {
     scales: {
       yAxes: [
